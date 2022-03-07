@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:student_handbook/constant.dart';
 import 'package:student_handbook/screens/details_screen.dart';
@@ -34,6 +36,7 @@ class HomeScreen extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         style: Theme.of(context).textTheme.headline4,
+                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
                           TextSpan(text: "Read the "),
                           TextSpan(
@@ -85,6 +88,7 @@ class HomeScreen extends StatelessWidget {
                         RichText(
                           text: TextSpan(
                             style: Theme.of(context).textTheme.headline4,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               TextSpan(text: "CMDI "),
                               TextSpan(
@@ -98,6 +102,7 @@ class HomeScreen extends StatelessWidget {
                         RichText(
                           text: TextSpan(
                             style: Theme.of(context).textTheme.headline5,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               TextSpan(text: "Continue "),
                               TextSpan(

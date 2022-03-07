@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:student_handbook/constant.dart';
 import 'package:student_handbook/widgets/book_rating.dart';
