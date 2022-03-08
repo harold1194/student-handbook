@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:student_handbook/constant.dart';
 import 'package:student_handbook/widgets/book_rating.dart';
@@ -82,6 +84,7 @@ class DetailsScreen extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       style: Theme.of(context).textTheme.headline5,
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         TextSpan(text: "You might also "),
                         TextSpan(

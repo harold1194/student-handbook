@@ -1,5 +1,6 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
-import 'package:student_handbook/screens/home_screen.dart';
 import 'package:student_handbook/screens/main_screen.dart';
 import 'package:student_handbook/widgets/rounded_button.dart';
 

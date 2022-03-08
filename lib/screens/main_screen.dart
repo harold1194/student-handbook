@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:student_handbook/screens/details_screen.dart';
 

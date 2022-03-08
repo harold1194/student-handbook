@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:student_handbook/constant.dart';
 import 'package:student_handbook/widgets/book_rating.dart';
