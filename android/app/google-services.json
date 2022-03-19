@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "994292922464",
+    "project_id": "student-handbook-5d9da",
+    "storage_bucket": "student-handbook-5d9da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994292922464:android:6c75a7c2cd9fce58072b05",
+        "android_client_info": {
+          "package_name": "com.example.student_handbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994292922464-ma3sdqp2vdj3qd6egsk3rasf46522bn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwznNccWysAyTEQSnj8Q6Hyz2WZ4rWxSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994292922464-ma3sdqp2vdj3qd6egsk3rasf46522bn8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:student_handbook/constant.dart';
 import 'package:student_handbook/screens/details_screen.dart';
@@ -7,8 +8,84 @@ import 'package:student_handbook/widgets/book_rating.dart';
 import 'package:student_handbook/widgets/reading_card_list.dart';
 import 'package:student_handbook/widgets/two_side_rounded_button.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController _partController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+
+  final CollectionReference _articless =
+      FirebaseFirestore.instance.collection('articles');
+
+  Future<void> _createOrUpdate([DocumentSnapshot? documentSnapshot]) async {
+    String action = 'create';
+    if (documentSnapshot != null) {
+      action = 'update';
+      _partController.text = documentSnapshot['part'].toString();
+      _descriptionController.text = documentSnapshot['description'];
+    }
+    await showModalBottomSheet(
+      context: context,
+      builder: (BuildContext ctx) {
+        return Padding(
+          padding: EdgeInsets.only(
+            top: 20,
+            left: 20,
+            right: 20,
+            bottom: MediaQuery.of(ctx).viewInsets.bottom + 20,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
+                controller: _partController,
+                decoration: const InputDecoration(labelText: 'Part'),
+              ),
+              TextField(
+                controller: _descriptionController,
+                decoration: const InputDecoration(labelText: 'Description'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                child: Text(action == 'create' ? 'Create' : 'Update'),
+                onPressed: () async {
+                  final double? part = double.tryParse(_partController.text);
+                  final String description = _descriptionController.text;
+
+                  if (part != null && description != null) {
+                    if (action == 'create') {
+                      await _articless
+                          .add({"part": part, "description": description});
+                    }
+                    if (action == 'update') {
+                      await _articless
+                          .doc(documentSnapshot!.id)
+                          .update({"part": part, "description": description});
+                    }
+
+                    // clear the text fields
+                    _partController.text = '';
+                    _descriptionController.text = '';
+
+                    // hide the bottomsheey
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
